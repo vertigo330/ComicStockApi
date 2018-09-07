@@ -10,12 +10,14 @@ namespace ComicStock.API.Areas.Suppliers.Controllers
 	public class SupplierController : ApiController
 	{
 		[HttpGet]
+		[Route("api/supplier")]
 		public IEnumerable<Supplier> Get()
 		{
 			return DataCache.GetSuppliers();
 		}
 
 		[HttpPost]
+		[Route("api/supplier")]
 		public HttpResponseMessage Post([FromBody] Supplier supplier)
 		{
 			var allSuppliers = DataCache.GetSuppliers();
@@ -32,6 +34,7 @@ namespace ComicStock.API.Areas.Suppliers.Controllers
 		}
 
 		[HttpGet]
+		[Route("api/supplier/{id}")]
 		public HttpResponseMessage Get(int id)
 		{
 			var allSuppliers = DataCache.GetSuppliers();
@@ -45,6 +48,7 @@ namespace ComicStock.API.Areas.Suppliers.Controllers
 		}
 		
 		[HttpPut]
+		[Route("api/supplier")]
 		public HttpResponseMessage Put([FromBody] Supplier supplier)
 		{
 			var allSuppliers = DataCache.GetSuppliers();
@@ -61,6 +65,7 @@ namespace ComicStock.API.Areas.Suppliers.Controllers
 		}
 
 		[HttpDelete]
+		[Route("api/supplier/{id}")]
 		public HttpResponseMessage Delete(int id)
 		{
 			var allSuppliers = DataCache.GetSuppliers();
@@ -76,6 +81,7 @@ namespace ComicStock.API.Areas.Suppliers.Controllers
 		}
 
 		[HttpPost]
+		[Route("api/supplier/reset")]
 		public IEnumerable<Supplier> Reset()
 		{
 			DataCache.Initialise();

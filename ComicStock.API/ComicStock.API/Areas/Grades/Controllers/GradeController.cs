@@ -5,11 +5,12 @@ using System.Web.Http;
 namespace ComicStock.API.Areas.Grades.Controllers
 {
 	public class GradeController : ApiController
-    {
-        [HttpGet]
-        public IEnumerable<Grade> Get()
-        {
+	{
+		[HttpGet]
+		[Route("api/grades")]
+		public IEnumerable<Grade> Get()
+		{
 			return DataCache.GetGrades();
-        }
-    }
+		}
+	}
 }
